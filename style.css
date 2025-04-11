@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#map {
+    height: 500px;
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    border: 2px solid black;
+}
+
+input, button {
+    padding: 8px;
+    margin: 5px;
+}
