@@ -14,4 +14,18 @@ body {
 input, button {
     padding: 8px;
     margin: 5px;
+    font-size: 14px;
 }
+
+/* Optional style for routing container */
+.leaflet-routing-container {
+    max-height: 300px;
+    overflow-y: auto;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.hide-directions {
+    display: none !important;
+}
+
