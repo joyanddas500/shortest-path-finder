@@ -32,9 +32,16 @@ function findRoute() {
         });
 }
 
+// 🔄 Function to Toggle Directions Panel Visibility
+function toggleDirections() {
+    const directionsBox = document.querySelector('.leaflet-routing-container');
+    if (directionsBox) {
+        directionsBox.classList.toggle('hide-directions');
+    }
+}
+
 // ---- Custom Shortest Path using Dijkstra Algorithm ----
 
-// Simple Sample Graph Representation
 const graph = {
     A: { B: 1, C: 4 },
     B: { A: 1, C: 2, D: 5 },
@@ -42,7 +49,6 @@ const graph = {
     D: { B: 5, C: 1 }
 };
 
-// Coordinates for each node (used for drawing path)
 const coords = {
     A: [23.8103, 90.4125],
     B: [23.8200, 90.4300],
@@ -50,7 +56,6 @@ const coords = {
     D: [23.7900, 90.4000]
 };
 
-// Dijkstra Algorithm
 function dijkstra(start, end, graph) {
     let distances = {};
     let prev = {};
@@ -85,13 +90,8 @@ function dijkstra(start, end, graph) {
     return path.reverse();
 }
 
-// Draw polyline on the map for custom Dijkstra path
 function drawPath(path) {
     const latlngs = path.map(p => coords[p]);
     L.polyline(latlngs, { color: 'red' }).addTo(map);
 }
 
-// Example: Run Dijkstra and draw path
-//const dijkstraPath = dijkstra('A', 'D', graph);
-//console.log("Dijkstra Shortest path from A to D:", dijkstraPath);
-//drawPath(dijkstraPath);
